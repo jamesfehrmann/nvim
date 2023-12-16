@@ -1,5 +1,6 @@
 -- https://github.com/williamboman/mason.nvim
 -- https://github.com/williamboman/mason-lspconfig.nvim
+-- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim
 
 return {
     'williamboman/mason.nvim',
@@ -19,21 +20,21 @@ return {
         })
 
         require('mason-lspconfig').setup({
-            ensure_installed = {
-                'html', 'clangd', 'lua_ls'
-            },
             automatic_installation = true,
+            ensure_installed = {
+                'clangd',
+                'lua_ls',
+                'pyright',
+                'autotools_ls',
+                'bashls',
+            },
         })
 
         require('mason-tool-installer').setup({
             ensure_installed = {
-                'prettier', -- prettier formatter
-                'stylua', -- lua formatter
-                'isort', -- python formatter
-                'black', -- python formatter
-                'pylint', -- python linter
-               -- 'eslint_d', -- js linter
                 'clang-format',
+                'stylua',
+                'pylint',
             },
         })
     end,
