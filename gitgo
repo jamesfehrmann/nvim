@@ -1,5 +1,4 @@
 #!/bin/bash
-cd ~/nvim
 git add .
 git commit -m "quick commit"
 git push
