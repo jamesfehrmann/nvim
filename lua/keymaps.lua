@@ -32,4 +32,7 @@ vim.keymap.set('n', '<leader>bs', '<cmd>bs<cr>', { desc = 'Buffer Seek' })
 
 vim.keymap.set('n', '<leader>pv', ':Ex<CR>', {desc = 'Project/directory view'})
 
-
+vim.keymap.set('n', '<leader>9', 'i(<Esc>', {noremap=true, desc = 'insert ('})
+vim.keymap.set('n', '<leader>0', 'a)<Esc>', {noremap=true, desc = 'insert )'})
+vim.keymap.set('n', '<leader>[', 'i{<Esc>', {noremap=true, desc = 'insert {'})
+vim.keymap.set('n', '<leader>]', 'a}<Esc>', {noremap=true, desc = 'insert }'})
