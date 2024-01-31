@@ -2,6 +2,7 @@
 -- line numbers
 vim.opt.relativenumber = true
 vim.opt.number = true
+vim.opt.scrolloff = 8
 
 -- tabs & indentation
 vim.opt.tabstop = 4
