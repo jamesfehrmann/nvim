@@ -79,6 +79,12 @@ return {
                 on_attach = on_attach,
             })
 
+            -- configure java server
+            lspconfig['java'].setup({
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
+
             -- configure python server
             lspconfig['pyright'].setup({
                 capabilities = capabilities,
