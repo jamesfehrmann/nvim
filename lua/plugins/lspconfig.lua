@@ -80,10 +80,10 @@ return {
             })
 
             -- configure java server
-            lspconfig['java'].setup({
-                capabilities = capabilities,
-                on_attach = on_attach,
-            })
+--            lspconfig['java'].setup({
+--                capabilities = capabilities,
+--                on_attach = on_attach,
+--            })
 
             -- configure python server
             lspconfig['pyright'].setup({
