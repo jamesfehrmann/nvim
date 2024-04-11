@@ -1,3 +1,6 @@
+-- title string
+vim.opt.title = true
+vim.opt.titlestring = '%t'
 
 -- line numbers
 vim.opt.relativenumber = true
