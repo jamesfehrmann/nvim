@@ -96,6 +96,20 @@ return {
                 capabilities = capabilities,
                 on_attach = on_attach,
             })
+
+            --arduino
+            local fqbn = "teensy:avr:teensy41"
+            lspconfig['arduino_language_server'].setup({
+                capabilities = capabilities,
+                on_attach = on_attach,
+                cmd = {
+                    "arduino-language-server",
+                    "-cli-config"  , "/home/jfehrmann/.arduino15/arduino-cli.yaml",
+                    "-cli"         , "/usr/local/bin/arduino-cli",
+                    "-clangd"      , "/opt/clangd/bin/clangd",
+                    "-fqbn"        , fqbn,
+                },
+            })
         end,
     }
 

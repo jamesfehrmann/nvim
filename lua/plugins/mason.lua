@@ -27,6 +27,7 @@ return {
                 'pyright',
                 'autotools_ls',
                 'bashls',
+                'arduino_language_server',
             },
         })
 
