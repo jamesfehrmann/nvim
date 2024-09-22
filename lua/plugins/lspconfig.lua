@@ -97,6 +97,12 @@ return {
                 on_attach = on_attach,
             })
 
+            -- docker language server
+            lspconfig['dockerls'].setup({
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
+
             --arduino
             local fqbn = "teensy:avr:teensy41"
             lspconfig['arduino_language_server'].setup({
