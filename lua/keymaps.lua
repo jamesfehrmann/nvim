@@ -1,6 +1,4 @@
 
-
-
 vim.keymap.set('n', '<leader>nh', ':nohl<CR>', { desc = 'Clear search highlights' })
 -- keymap.set('n', '<leader>+', '<C-a>', { desc = 'Increment number' })
 -- keymap.set('n', '<leader>-', '<C-x>', { desc = 'Decrement number' })
@@ -36,3 +34,7 @@ vim.keymap.set('n', '<leader>9', 'i(<Esc>', {noremap=true, desc = 'insert ('})
 vim.keymap.set('n', '<leader>0', 'a)<Esc>', {noremap=true, desc = 'insert )'})
 vim.keymap.set('n', '<leader>[', 'i{<Esc>', {noremap=true, desc = 'insert {'})
 vim.keymap.set('n', '<leader>]', 'a}<Esc>', {noremap=true, desc = 'insert }'})
+
+vim.keymap.set('n', '<leader>,', '<cmd>NvimTreeToggle<cr>', {noremap=true, desc = 'Open File Tree'})
+
+
