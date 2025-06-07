@@ -9,7 +9,8 @@ return {
             'williamboman/mason-lspconfig.nvim',
             'hrsh7th/cmp-nvim-lsp',
             { 'j-hui/fidget.nvim',                   opts = {} },
-            'folke/neodev.nvim',
+            --'folke/neodev.nvim',
+            'folke/lazydev.nvim',
             { 'antosha417/nvim-lsp-file-operations', config = true },
         },
         config = function()
@@ -80,10 +81,10 @@ return {
             })
 
             -- configure java server
---            lspconfig['java'].setup({
---                capabilities = capabilities,
---                on_attach = on_attach,
---            })
+            --            lspconfig['java'].setup({
+            --                capabilities = capabilities,
+            --                on_attach = on_attach,
+            --            })
 
             -- configure python server
             lspconfig['pyright'].setup({
@@ -110,14 +111,25 @@ return {
                 on_attach = on_attach,
                 cmd = {
                     "arduino-language-server",
-                    "-cli-config"  , "/home/jfehrmann/.arduino15/arduino-cli.yaml",
-                    "-cli"         , "/usr/local/bin/arduino-cli",
-                    "-clangd"      , "/opt/clangd/bin/clangd",
-                    "-fqbn"        , fqbn,
+                    "-cli-config", "/home/jfehrmann/.arduino15/arduino-cli.yaml",
+                    "-cli", "/usr/local/bin/arduino-cli",
+                    -- "-clangd"      , "/opt/clangd/bin/clangd",
+                    "-clangd", "/usr/bin/clangd",
+                    "-fqbn", fqbn,
                 },
+                filetypes = { "arduino" },
+                root_dir = require("lspconfig.util").root_pattern("*.ino"),
+            })
+
+            vim.diagnostic.config({
+                virtual_text = {
+                    prefix = '*',
+                    spacing = 2,
+                },
+                underline = true,
+                signs = true,
+                update_in_insert = false,
             })
         end,
     }
-
-
 }
