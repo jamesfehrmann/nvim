@@ -9,7 +9,6 @@ return {
             'williamboman/mason-lspconfig.nvim',
             'hrsh7th/cmp-nvim-lsp',
             { 'j-hui/fidget.nvim',                   opts = {} },
-            --'folke/neodev.nvim',
             'folke/lazydev.nvim',
             { 'antosha417/nvim-lsp-file-operations', config = true },
         },
@@ -111,10 +110,9 @@ return {
                 on_attach = on_attach,
                 cmd = {
                     "arduino-language-server",
-                    "-cli-config", "/home/jfehrmann/.arduino15/arduino-cli.yaml",
-                    "-cli", "/usr/local/bin/arduino-cli",
-                    -- "-clangd"      , "/opt/clangd/bin/clangd",
                     "-clangd", "/usr/bin/clangd",
+                    "-cli", "/usr/local/bin/arduino-cli",
+                    "-cli-config", "/home/jfehrmann/.arduino15/arduino-cli.yaml",
                     "-fqbn", fqbn,
                 },
                 filetypes = { "arduino" },
@@ -130,6 +128,15 @@ return {
                 signs = true,
                 update_in_insert = false,
             })
+
+            vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
+                if result.diagnostics then
+                    result.diagnostics = vim.tbl_filter(function(diagnostic)
+                        return diagnostic.code ~= "ovl_diff_return_type"
+                    end, result.diagnostics)
+                end
+                vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx)
+            end
         end,
     }
 }
